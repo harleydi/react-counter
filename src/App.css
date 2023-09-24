@@ -7,7 +7,7 @@
 
 .counter-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 2rem;
   justify-content: center;
   align-items: center;
@@ -22,12 +22,22 @@
   align-items: center;
 }
 
-.buttons {
+.funcBtn {
+  height: 5rem;
+  width: 5rem;
+}
+
+.stars {
+  margin-top: 3rem;
   display: flex;
-  justify-content: space-evenly;
-  width: 100%;
+  justify-content: center;
+  gap: 2rem;
 }
 
 .btn {
   width: 5rem;
+  height: 4rem;
+  background-color: #121212;
+  font-size: xx-large;
+  padding: 0;
 }

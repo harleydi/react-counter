@@ -4,44 +4,38 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [starHolder, setStarHolder] = useState([])
 
-  const operators = [['+', 'add'], ['-', 'subtract'], ['*', 'multiply'], ['/', 'divide']]
+  
 
-  const btnHandler = (e) => {
-    const name = e.target.value
-    switch (name) {
-      case 'add':
-        setCount(count + 1)
-        break;
-      case 'subtract':
-        setCount(count - 1)
-        break;
-      case 'multiply':
-        setCount(count * count)
-        break;
-      case 'divide':
-        setCount(count / 2)
-        break;
-      case 'clear':
-        setCount(0)
-        break;
-      default:
-        console.log('No operation found');
-        break;
+  const add = () => {
+    setCount(count + 1)
+    if (count >= 0) {
+      setStarHolder([...starHolder, '*'])
+      console.log(starHolder)
     }
   }
+
+  const sub = () => {
+    setCount(count - 1)
+    starHolder.pop()
+    console.log(starHolder)
+  }
+
+  
 
   return (
     <>
       <h1>React Counter App</h1>
       <div className='counter-container'>
-        <div className="counter-screen"> 
+        <button className='funcBtn' id='add' onClick={add}>+</button>
+        <div className="counter-screen">
           <h1>{count}</h1>
         </div>
-        <div className="buttons">
-          {operators.map((op) => <button key={op[1]} value={op[1]} className='btn' onClick={btnHandler} >{op[0]}</button> )}
-          <button value={'clear'} onClick={btnHandler}>Clear</button>
-        </div>
+        <button className='funcBtn' id='sub' onClick={sub}>-</button>
+      </div>
+      <div className="stars">
+        {starHolder.map((star, idx) => <button key={idx} className='btn'>{star}</button>)}
       </div>
     </>
   )
