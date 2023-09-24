@@ -12,14 +12,14 @@ function App() {
     setCount(count + 1)
     if (count >= 0) {
       setStarHolder([...starHolder, '*'])
-      console.log(starHolder)
     }
   }
 
   const sub = () => {
-    setCount(count - 1)
-    starHolder.pop()
-    console.log(starHolder)
+    if (count >= 1) {
+      setCount(count - 1)
+      starHolder.pop()
+    }
   }
 
   
